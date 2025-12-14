@@ -26,4 +26,4 @@ A responsive landing page built using HTML & CSS only.
 ## Tech Stack
 - HTML5
 - CSS3
->>>>>>> b6aff52 (first commit)
+
