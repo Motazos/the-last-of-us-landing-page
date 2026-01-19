@@ -9,6 +9,9 @@ body{
     width: 100%;
     background: black;
 }
+
+/*          CONTAINER          */
+
 .container{
     width: 100%;
     min-height: 100vh;
@@ -19,9 +22,7 @@ body{
     color: #fff;
     position: relative;
     animation: zoom 10s ease-in-out forwards;
-    
 }
-
 
 @keyframes zoom{
     0%{
@@ -38,26 +39,23 @@ body{
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
 }
+.container::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0%,
+        #000 100%
+    );
+    z-index: 3;
+}
 
-.logo{
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 800;
-    padding: 5px 10px;
-    margin-top: 10px;
-}
-.logo a{
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-}
-ul li a{
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: 0.7s;
-}
+/*      NAVBAR        */
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -68,6 +66,22 @@ nav{
     z-index: 2;
     padding: 0 40px;
 }
+
+.logo{
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.logo a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
 ul{
     display: flex;
     align-items: center;
@@ -75,15 +89,25 @@ ul{
     margin-top: 10px;
     flex-wrap: wrap;
 }
+
 ul li{
     list-style: none;
     font-weight: 500;
 }
+
+ul li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: 0.7s;
+}
+
 ul li a:hover{
     color: rgb(167, 120, 34);
     text-decoration: underline;
     
 }
+
 ul li a.buy{
     color: rgb(167, 120, 34);
     font-weight: 600;
@@ -91,22 +115,32 @@ ul li a.buy{
     padding: 8px 16px;
     border-radius: 6px;
 }
+
 .buy:hover{
     transform: scale(1.1);
     transition: 1s;
 }
+
+/*     CONTENT     */
+
 .content{
     display: flex;
     position: relative;
     z-index: 2;
     height: 85%;
     padding: 60px;
-    
 }
+
+
 @keyframes fadeIn{
     0%{opacity:0; transform: translateY(20px);}
     100%{opacity:1; transform: translateY(0);}
 }
+
+.text{
+    animation: fadeIn 1.2s ease forwards;
+}
+
 .text h4{
     text-transform: uppercase;
     margin-bottom: 15px;
@@ -117,18 +151,21 @@ ul li a.buy{
     background-color: rgba(252, 7, 7, 0.126);
     font-size: 12px;
 }
+
 .text h1{
     letter-spacing: 2px;
     font-size: 60px;
     font-weight: 900;
     text-transform: capitalize;
 }
+
 .text h3{
     padding: 0 80px;
     font-size: 60px;
     color: rgb(167, 120, 34);
     margin-bottom: 40px;
 }
+
 .text p{
     font-size: 20px;
     max-width: 480px;
@@ -137,6 +174,7 @@ ul li a.buy{
     word-spacing: 2px;
     margin-bottom: 20px;
 }
+
 .text a .btn-play{
     border: none;
     outline: none;
@@ -155,6 +193,7 @@ ul li a.buy{
     line-height: 40px;
     text-transform: capitalize;
 }
+
 .text a .btn-play:hover{
     cursor: pointer;
     background: rgb(229, 44, 44);
@@ -162,6 +201,7 @@ ul li a.buy{
     border: none;
     transform: scale(1.09);
 }
+
 .text a .btn-explore{
     border: none;
     outline: none;
@@ -183,6 +223,7 @@ ul li a.buy{
     text-transform: capitalize;
     border: 2px solid #ffffff51;
 }
+
  .text a .btn-explore:hover{
     cursor: pointer;
     background: rgb(167, 120, 34);
@@ -190,15 +231,16 @@ ul li a.buy{
     border: none;
     transform: none;
 }
+
 i{
     margin-right: 8px;
 }
-.text{
-    animation: fadeIn 1.2s ease forwards;
-}
+
 .content .text a{
     text-decoration: none;
 }
+
+/*    MEDIA QUERIES     */
 
 @media (max-width: 768px) {
     .container {
@@ -207,8 +249,6 @@ i{
         padding: 20px;
         background-size: cover;
         background-image: url(images/Cq27oTSZV7bjGmGRqWrQ2P.jpg);
-        
-        
     }
 
     nav {
@@ -217,15 +257,12 @@ i{
         padding: 20px;
         width: 100%;
         height: 20%;
-        
-        
     }
 
     .logo {
         font-size: 30px;
         margin-bottom: 20px;
         text-align: center;
-        
     }
 
     ul {
@@ -234,8 +271,7 @@ i{
         align-items: center;
         gap: 5px;
         width: 100%;
-        margin-top: 15px;
-        
+        margin-top: 15px;  
     }
 
     ul li a {
@@ -245,7 +281,6 @@ i{
 
     ul li a.buy {
         display: none;
-        
     }
 
     .content {
@@ -271,13 +306,10 @@ i{
 
      .content a .btn-play {
         width: 150px;
-        height: 50px;
+        height: 40px;
         font-size: 16px;
         margin-top: 10px;
-        
-        
-        
-        
+        padding-bottom: 55px;
     }
 
     i, #wiki {
@@ -320,7 +352,6 @@ i{
     .content {
         flex-direction: column;
         padding: 20px;
-        margin-top: 50px;
         height: auto;
         margin-left: 20px;
     }
@@ -335,12 +366,12 @@ i{
         padding: 0 20px;
         
     }
+    .text p{
+        width: 35%;
+    }
 
-    .text button {
-        width: 140px;
-        height: 42px;
-        font-size: 16px;
-        margin-top: 15px;
+    .content a .btn-play , .btn-explore{
+        margin-top: 0;
     }
 
     i, #wiki {
@@ -348,20 +379,9 @@ i{
         margin-top: 15px;
     }
 }
-.container::after{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0%,
-        #000 100%
-    );
-    z-index: 3;
-}
+
+/*    OVERVIEW SECTIOM      */
+
 .overview-container{
     min-height: 100vh;
     width: 100%;
@@ -387,11 +407,9 @@ i{
     z-index: 2;
 }
 
-
 .overview-text{
     padding: 60px 20px;
     color: #fff;
-    
 }
 .overview-text h2{
     font-size: 60px;
@@ -408,7 +426,6 @@ i{
     word-spacing: 2px;
     text-align: left;
     margin-left: 25px;
-    
 }
 .overview-text a.overview-btn{
     display: inline-block;
@@ -424,7 +441,6 @@ i{
     transition: 0.8s;
     text-align: center;
     width: 200px;
-    
 }
 .overview-text a.overview-btn:hover{
     color: #fff;
@@ -476,6 +492,9 @@ i{
         font-size: 40px;
     }
 }
+
+/*   CHARACTERS SECTION     */
+
 .characters-container{
     min-height: 100vh;
     width: 100%;
@@ -524,7 +543,6 @@ i{
 .character-text{
     color: #fff;
     padding: 10px 20px;
-    
 }
 .character img{
     width: 95%;
@@ -559,6 +577,9 @@ i{
     transform: scale(1.05);
     filter: brightness(0.9);
 }
+
+/*    EDITIONS SECTION    */
+
 .editions-container{
     min-height: 100vh;
     width: 100%;
@@ -717,6 +738,9 @@ i{
         grid-template-columns: 1fr;
     }
 }
+
+/*      FOOTER    */
+
 .divider {
   padding: 80px 0;
   text-align: center;
@@ -772,6 +796,57 @@ i{
 @media (max-width: 768px){
     .footer-container{
         grid-template-columns: 1fr;
+    }
+}
+
+/*  Reveal Animation */
+.feature,
+.character,
+.editions {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s ease;
+}
+
+.feature.show,
+.character.show,
+.editions.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*SCROLL TO TOP*/
+
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgb(167, 120, 34);
+    color: #000;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    transition: 0.3s ease;
+    padding-left: 7px;
+    padding-top: 2px;
+    
+}
+#scrollTopBtn:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+@media (max-width: 768px) {
+    #scrollTopBtn{
+        width: 40px;
+        height: 25px;
+        border-radius: 50%;
+        padding-bottom: 50px;
+        right: 20px;
     }
 }
 
